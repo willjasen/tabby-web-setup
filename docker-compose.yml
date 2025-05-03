@@ -1,6 +1,6 @@
 services:
   tabby:
-    image: ghcr.io/eugeny/tabby-web:latest
+    image: ghcr.io/eugeny/tabby-web:1.0.163
     container_name: tabby
     restart: always
     ports:
