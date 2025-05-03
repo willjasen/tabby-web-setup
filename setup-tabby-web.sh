@@ -52,6 +52,7 @@ docker compose -f /opt/tabby-web-setup/docker-compose.yml up -d
 # Check if the container is running
 if [ "$(docker ps -q -f name=tabby)" ]; then
     echo "tabyy-web container is running."
+    docker exec tabby ./manage.sh add_version $LATEST_VERSION
 else
     echo "Failed to start tabby-web."
     exit 1
