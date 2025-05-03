@@ -50,6 +50,8 @@ echo "Release time of latest version: $LATEST_VERSION_TIME"
 git clone https://github.com/gyf9835/tabby-web.git
 cd tabby-web
 git switch patch-2
+rm /opt/tabby-web-setup/tabby-web/docker-compose.yml
+ln -s /opt/tabby-web-setup/docker-compose.yml /opt/tabby-web-setup/tabby-web/docker-compose.yml
 docker compose -f /opt/tabby-web-setup/tabby-web/docker-compose.yml up -d
 
 # Check if the container is running
