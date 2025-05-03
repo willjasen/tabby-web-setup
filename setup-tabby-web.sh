@@ -3,7 +3,7 @@
 # Check if jq is installed
 if [ ! -x "$(which jq)" ]; then
     echo -e "\033[33mjq is not installed. Installing jq...\033[0m"
-    apt-get update && apt-get install -y jq
+    apt-get -qq update && apt-get -qq install -y jq
 fi
 
 # Check if GITHUB_CLIENT_ID exists in .env file
