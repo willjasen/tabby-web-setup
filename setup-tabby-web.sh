@@ -47,18 +47,18 @@ echo "Latest version of tabby-web: $LATEST_VERSION"
 echo "Release time of latest version: $LATEST_VERSION_TIME"
 
 # Bring up the Docker container
-git clone https://github.com/gyf9835/tabby-web.git
-cd tabby-web
-git switch patch-2
-cp /opt/tabby-web-setup/.env /opt/tabby-web-setup/tabby-web/.env 
-rm /opt/tabby-web-setup/tabby-web/docker-compose.yml
-ln -s /opt/tabby-web-setup/docker-compose.yml /opt/tabby-web-setup/tabby-web/docker-compose.yml
-docker compose -f /opt/tabby-web-setup/tabby-web/docker-compose.yml up -d
+# git clone https://github.com/gyf9835/tabby-web.git
+# cd tabby-web
+# git switch patch-2
+# cp /opt/tabby-web-setup/.env /opt/tabby-web-setup/tabby-web/.env 
+# rm /opt/tabby-web-setup/tabby-web/docker-compose.yml
+# ln -s /opt/tabby-web-setup/docker-compose.yml /opt/tabby-web-setup/tabby-web/docker-compose.yml
+docker compose -f /opt/tabby-web-setup/docker-compose.yml up -d
 
 # Check if the container is running
 if [ "$(docker ps -q -f name=tabby)" ]; then
     echo "tabyy-web container is running."
-    # docker compose run tabby /manage.sh add_version $LATEST_VERSION
+    docker compose run tabby /manage.sh add_version $LATEST_VERSION
 else
     echo "Failed to start tabby-web."
     exit 1
