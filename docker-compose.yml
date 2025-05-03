@@ -1,6 +1,6 @@
 services:
   tabby:
-    build: .
+    image: ghcr.io/eugeny/tabby-web:latest
     container_name: tabby
     restart: always
     volumes:
