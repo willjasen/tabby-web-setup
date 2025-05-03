@@ -9,7 +9,7 @@ fi
 # Check if GITHUB_CLIENT_ID exists in .env file
 ENV_FILE=".env"
 if [ ! -f "$ENV_FILE" ] || ! grep -q "^GITHUB_CLIENT_ID=" "$ENV_FILE"; then
-    echo "GitHub client ID not found in .env file. Please enter your GitHub client ID:"
+    echo "\033[32mGitHub client ID not found in .env file. Please enter your GitHub client ID:\033[0m"
     read GITHUB_CLIENT_ID
     if [ ! -f "$ENV_FILE" ]; then
         echo "GITHUB_CLIENT_ID=$GITHUB_CLIENT_ID" > "$ENV_FILE"
@@ -24,7 +24,7 @@ fi
 
 # Check if GITHUB_CLIENT_SECRET exists in .env file
 if [ ! -f "$ENV_FILE" ] || ! grep -q "^GITHUB_CLIENT_SECRET=" "$ENV_FILE"; then
-    echo "GitHub client secret not found in .env file. Please enter your GitHub client secret:"
+    echo "\033[32mGitHub client secret not found in .env file. Please enter your GitHub client secret:\033[0m"
     read GITHUB_CLIENT_SECRET
     if [ ! -f "$ENV_FILE" ]; then
         echo "GITHUB_CLIENT_SECRET=$GITHUB_CLIENT_SECRET" > "$ENV_FILE"
