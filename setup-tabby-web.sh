@@ -38,15 +38,13 @@ else
 fi
 
 # Fetch the JSON file from the URL
-# URL="https://registry.npmjs.org/tabby-web-container/"
-# LATEST_VERSION=$(curl -s $URL | jq -r '."dist-tags".latest')
-# LATEST_VERSION_TIME=$(curl -s $URL | jq -r --arg version "$LATEST_VERSION" '.time[$version]')
+URL="https://registry.npmjs.org/tabby-web-container/"
+LATEST_VERSION=$(curl -s $URL | jq -r '."dist-tags".latest')
+LATEST_VERSION_TIME=$(curl -s $URL | jq -r --arg version "$LATEST_VERSION" '.time[$version]')
 
 # Print the latest version and its time
-# echo "Latest version of tabby-web: $LATEST_VERSION"
-# echo "Release time of latest version: $LATEST_VERSION_TIME"
-
-LATEST_VERSION="1.0.163"
+echo "Latest version of tabby-web: $LATEST_VERSION"
+echo "Release time of latest version: $LATEST_VERSION_TIME"
 
 # Bring up the Docker container
 docker compose -f /opt/tabby-web-setup/docker-compose.yml up -d
