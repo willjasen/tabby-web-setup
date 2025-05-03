@@ -1,0 +1,18 @@
+services:
+  tabby:
+    image: ghcr.io/eugeny/tabby-web:latest
+    container_name: tabby
+    restart: always
+    ports:
+      - '9090:8000'
+    volumes:
+      - ./data:/app-dist
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=sqlite:////app-dist/db.sqlite3
+      - PORT=8000
+      - DEBUG=false
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+  
