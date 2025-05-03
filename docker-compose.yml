@@ -4,7 +4,7 @@ services:
     container_name: tabby
     restart: always
     ports:
-      - '9090:8000'
+      - '127.0.0.1:9090:8000'
     volumes:
       - ./data:/app-dist
     env_file:
