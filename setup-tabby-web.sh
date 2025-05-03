@@ -4,19 +4,7 @@
 if ! command -v jq &> /dev/null
 then
     echo "jq is not installed. Installing jq..."
-    if [ "$(uname)" = "Darwin" ]; then
-        # macOS
-        brew install jq
-    elif [ -f /etc/debian_version ]; then
-        # Debian-based Linux
-        sudo apt-get update && sudo apt-get install -y jq
-    elif [ -f /etc/redhat-release ]; then
-        # Red Hat-based Linux
-        sudo yum install -y jq
-    else
-        echo "Unsupported OS. Please install jq manually."
-        exit 1
-    fi
+    apt-get update && apt-get install -y jq
 fi
 
 # Check if GITHUB_CLIENT_ID exists in .env file
