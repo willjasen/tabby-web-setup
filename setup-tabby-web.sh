@@ -47,7 +47,7 @@ echo "Latest version of tabby-web: $LATEST_VERSION"
 echo "Release time of latest version: $LATEST_VERSION_TIME"
 
 # Bring up the Docker container
-docker compose up -d
+docker compose -f /opt/tabby-web-setup/docker-compose.yml up -d
 
 # Check if the container is running
 if [ "$(docker ps -q -f name=tabby)" ]; then
